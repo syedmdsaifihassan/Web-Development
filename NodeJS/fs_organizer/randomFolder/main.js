@@ -23,9 +23,9 @@ let inputArr = process.argv.slice(2);
 let command = inputArr[0];
 
 switch (command) {
-    // case "tree":
-    //     treeObj.treeFxn(inputArr[1]);
-    //     break;
+    case "tree":
+        treeObj.treeFxn(inputArr[1]);
+        break;
     case "organize":
         organizeObj.organizeFxn(inputArr[1]);
         break;
