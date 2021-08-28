@@ -82,6 +82,7 @@ function newcb(error, response, html) {
         // check
         if(bowlersArr.length == bowlersCount){
             console.table(bowlersArr);
+            sortBday(bowlersArr);
         }
     }
 }
@@ -93,7 +94,43 @@ function getBirthday(html){
     let name = searchTool(headingsArr[0]).text();
     let age = searchTool(headingsArr[2]).text();
     // console.log(name+" --- "+age);
-    bowlersArr.push({name, age});
+    bowlersArr.push({"name":name, "age":age});
 }
 
 console.log("After");
+
+function sortBday(bowlersArr){
+    // sort
+    // age -> map
+
+    let newArr = bowlersArr.map(singleFn);
+    function singleFn(obj){
+        let name = obj.name;
+        let age = obj.age;
+        let ageArr = obj.age.split(" ");
+        let yrs = ageArr[0].slice(0, ageArr[0].length - 1);
+        let days = ageArr[1].slice(0, ageArr[1].length - 1);
+
+        let ageIndays = Number(yrs)*365 + Number(days);
+
+        return {
+            name: name,
+            age: ageIndays,
+            age: age
+        }
+    }
+    let sortedArr = newArr.sort(cb);
+    function cb(objA, objB){
+        return objA.ageIndays - objB.ageIndays;
+    }
+
+    let finalArr = sortedArr.map(removeageIndays);
+
+    function removeageIndays(obj){
+        return {
+            name: obj.name,
+            age: obj.age
+        }
+    }
+    console.table(finalArr);
+}
