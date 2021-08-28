@@ -6,6 +6,8 @@ let cheerio = require('cheerio');
 let fs = require('fs');
 
 // data extract -> cheerio
+let bowlersArr = [];
+let bowlersCount = 0;
 console.log("Before");
 let url = "https://www.espncricinfo.com/series/ipl-2020-21-1210595/royal-challengers-bangalore-vs-sunrisers-hyderabad-eliminator-1237178/full-scorecard";
 
@@ -45,6 +47,13 @@ function dataExtract(html) {
     // bowlers table
     let bowlers = searchTool(".table.bowler tbody tr");
 
+    for(let i=0; i<bowlers.length; i++) {
+        let cols = searchTool(bowlers[i]).find("td");
+        if(cols.length > 1) {
+            bowlersCount++;
+        }
+    }
+
     let max = 0;
     let hwtName = "";
     for(let i=0; i<bowlers.length; i++) {
@@ -67,7 +76,13 @@ function newcb(error, response, html) {
         console.log("Page not found");
     }else{
         // console.log(html); // Print the HTML for the request made
+
+        // food
         getBirthday(html);
+        // check
+        if(bowlersArr.length == bowlersCount){
+            console.table(bowlersArr);
+        }
     }
 }
 
@@ -77,7 +92,8 @@ function getBirthday(html){
     let headingsArr = searchTool('.player-card-description');
     let name = searchTool(headingsArr[0]).text();
     let age = searchTool(headingsArr[2]).text();
-    console.log(name+" --- "+age);
+    // console.log(name+" --- "+age);
+    bowlersArr.push({name, age});
 }
 
 console.log("After");
