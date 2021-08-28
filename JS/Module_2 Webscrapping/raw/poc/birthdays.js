@@ -71,7 +71,7 @@ function dataExtract(html) {
 
 function newcb(error, response, html) {
     if(error) {
-        console.log('error:', error); // Print the error message if occured.
+        // console.log('error:', error); // Print the error message if occured.
     }else if(response.statusCode == 404){
         console.log("Page not found");
     }else{
@@ -81,6 +81,7 @@ function newcb(error, response, html) {
         getBirthday(html);
         // check
         if(bowlersArr.length == bowlersCount){
+            console.log("Bowlers Name and Age");
             console.table(bowlersArr);
             sortBday(bowlersArr);
         }
@@ -110,12 +111,11 @@ function sortBday(bowlersArr){
         let ageArr = obj.age.split(" ");
         let yrs = ageArr[0].slice(0, ageArr[0].length - 1);
         let days = ageArr[1].slice(0, ageArr[1].length - 1);
-
         let ageIndays = Number(yrs)*365 + Number(days);
 
         return {
             name: name,
-            age: ageIndays,
+            ageIndays: ageIndays,
             age: age
         }
     }
@@ -132,5 +132,6 @@ function sortBday(bowlersArr){
             age: obj.age
         }
     }
+    console.log("Bowlers Name and Age (Birthdays Sorted)");
     console.table(finalArr);
 }
