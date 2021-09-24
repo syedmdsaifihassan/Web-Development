@@ -7,15 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-    <button onClick="addHello()">say 'Hello'</button>
-    <div id="p">
-    </div>
+    <!-- 1 (Using div)-->
+    <!-- <button onClick="addHello()">say 'Hello'</button> -->
+    <!-- <div id="p">
+    </div> -->
+
+    <!-- 2 -->
+    <button>say 'Hello'</button>
+
+
     <script>
         // Ques: on click the button append paragraph 'Hello' to the page
-        function addHello() {
-            document.getElementById("p").innerHTML += 
-              "<p>Hello</p>";
-        }
+
+        // 1 (Using div)
+        // function addHello() {
+        //     document.getElementById("p").innerHTML += 
+        //       "<p>Hello</p>";
+        // }
+
+        // 2
+        let button = document.querySelector('button');
+        button.addEventListener('click', function() {
+            let p = document.createElement('p');
+            p.textContent = "Hello";
+            document.body.appendChild(p);
+        })
     </script>
 </body>
 </html>
