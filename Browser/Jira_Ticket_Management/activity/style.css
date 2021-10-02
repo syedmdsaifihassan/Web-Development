@@ -1,0 +1,108 @@
+/* universal selector */
+body{
+    /* border: 2px solid red; */
+    margin: 0px;
+}
+
+/* header */
+.header-container{
+    height: 5.5rem;
+    background-color: #313131;
+    color: #fff;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 3rem;
+    display: flex;
+}
+
+/* main container */
+.main-container{
+    height: calc(100vh - 3.5rem);
+    background-color: #d0d0d0;
+    color: #000000;
+    padding: 6rem;
+}
+/* main container ends */
+
+.header-container>*{
+    background-color: #747474;
+    height: 65%;
+    border-radius: 6px;
+}
+
+/* colors */
+.color-group-container{
+    width: 25%;
+    margin-right: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.color{
+    height: 70%;
+    width: 15%;
+    border-radius: 4px;
+}
+.pink{
+    background-color: pink;
+}
+.blue{
+    background-color: lightblue;
+}
+.green{
+    background-color: lightgreen;
+}
+.black{
+    background-color: black;
+}
+/* colors end */
+
+/* add cross */
+.add-cross-container{
+    width: 10%;
+    display: flex;
+}
+.add-cross-container>*{
+    width: 50%;
+    height: 100%;
+}
+.add,.cross{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-plus,.fa-close{
+    color: black;
+}
+/* add cross ends */
+
+/* input fields */
+.task_input{
+    color: white;
+    font-size: 2rem;
+}
+/* input fields end */
+
+/* task cont */
+.task-container{
+    width: 15rem;
+    height: 9rem;
+    /* border: 1px solid black; */
+    background-color: white;
+}
+.task-header{
+    height: 0.6rem;
+    background-color: black;
+}
+.task-main{
+    padding: 0.5rem;
+}
+.task-id{
+    color: gray;
+    margin: 0.2rem;
+    margin-left: 0px;
+}
+.task-text{
+    font-size: 1.4rem;
+}
