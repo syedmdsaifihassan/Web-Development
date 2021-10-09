@@ -21,6 +21,9 @@ body{
     background-color: #d0d0d0;
     color: #000000;
     padding: 6rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 /* main container ends */
 
@@ -58,29 +61,47 @@ body{
 }
 /* colors end */
 
-/* add cross */
-.add-cross-container{
+/* add cross lock unlock */
+.add-cross-container,.lock-unlock-container{
     width: 10%;
     display: flex;
 }
 .add-cross-container>*{
     width: 50%;
     height: 100%;
+    border-radius: 6px;
 }
-.add,.cross{
+.lock-unlock-container>*{
+    width: 50%;
+    height: 100%;
+    border-radius: 6px;
+}
+.add,.cross,.lock,.unlock{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .fa-plus,.fa-close{
-    color: black;
+    color: white;
 }
-/* add cross ends */
+.active{
+    background-color: #ac2020;
+}
+/* .delete{
+    background-color: #ac2020;
+} */
+/* icons are treated as text  */
+.tool_icons{
+    font-size:2rem;
+    /* boldness */
+    font-weight:400;
+}
+/* add cross lock unlock ends */
 
 /* input fields */
 .task_input{
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 /* input fields end */
 
@@ -88,12 +109,13 @@ body{
 .task-container{
     width: 15rem;
     height: 9rem;
-    /* border: 1px solid black; */
+    /* border: 6px solid black; */
     background-color: white;
+    margin: 2rem;
 }
 .task-header{
     height: 0.6rem;
-    background-color: black;
+    /* background-color: black; */
 }
 .task-main{
     padding: 0.5rem;
