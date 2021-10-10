@@ -24,7 +24,7 @@
         </div>
 
         <div class="add-cross-container">
-            <div class="icon add">
+            <div class="icon add" id="openModal">
                 <i class="fa fa-plus fa-2x tool-icons"></i>
             </div>
             <div class="icon cross">
@@ -40,11 +40,29 @@
             </div>
         </div>
 
-        <input type="text" class="task_input">
+        <!-- <input type="text" class="task_input2"> -->
     </div>
 
     <div class="main-container">
         <!-- from dom after input -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <div class="modal-input">
+                <input placeholder="Enter your task" type="text" class="task_input">
+            </div>
+            <div class="modal-color">
+                <div class="color-container-modal">
+                    <div class="color-modal pink" onclick="changeColor('pink')"></div>
+                    <div class="color-modal blue" onclick="changeColor('lightblue')"></div>
+                    <div class="color-modal green" onclick="changeColor('lightgreen')"></div>
+                    <div class="color-modal black" onclick="changeColor('black')"></div>
+                </div>
+                
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/short-unique-id@latest/dist/short-unique-id.min.js"></script>

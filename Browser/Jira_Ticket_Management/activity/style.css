@@ -35,7 +35,7 @@ body{
 
 /* colors */
 .color-group-container{
-    width: 25%;
+    width: 20%;
     margin-right: 3rem;
     display: flex;
     justify-content: space-evenly;
@@ -63,7 +63,7 @@ body{
 
 /* add cross lock unlock */
 .add-cross-container,.lock-unlock-container{
-    width: 10%;
+    width: 8%;
     display: flex;
 }
 .add-cross-container>*{
@@ -91,10 +91,8 @@ body{
     background-color: #ac2020;
 } */
 /* icons are treated as text  */
-.tool_icons{
-    font-size:2rem;
-    /* boldness */
-    font-weight:400;
+.tool-icons{
+    font-size: 6rem;
 }
 /* add cross lock unlock ends */
 
@@ -102,6 +100,7 @@ body{
 .task_input{
     color: white;
     font-size: 1.5rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /* input fields end */
 
@@ -127,4 +126,76 @@ body{
 }
 .task-text{
     font-size: 1.4rem;
+}
+.text{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    color: #262626;
+}
+
+.modal{
+    display: none;  /* by default hidden */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+
+    /* Fallback color */
+    /* background-color: rgb(0,0,0); */
+    /* Black w/ opacity */
+    /* background-color: rgba(0,0,0,0.4); */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    width: 50rem;
+    height: 20rem;
+    position: relative;
+    box-shadow: #00000060 0px 54px 55px, #0000001f 0px -12px 30px, #0000001f 0px 4px 6px, #0000002b 0px 12px 13px, #00000030 0px -3px 5px;
+}
+.modal-input{
+    background-color: white;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    position: absolute;
+}
+.modal-input>input{
+    width: 100%;
+    font-size: 2rem;
+    margin: 0 auto;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    color: #333;
+}
+.modal-input>input::placeholder{
+    opacity: 0.5;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+}
+.modal-color{
+    margin-left: 35rem;
+    background-color: #464646;
+    height: 100%;
+    width: 30%;
+    position: absolute;
+}
+.color-container-modal{
+    margin-top: 1.5rem;
+    position: absolute;
+}
+.color-modal{
+    height: 3rem;
+    width: 4.5rem;
+    border-radius: 2px;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.border-color{
+    border: 5px solid red;
 }

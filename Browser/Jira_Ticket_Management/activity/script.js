@@ -7,6 +7,7 @@ let lockContainer = document.querySelector(".lock");
 let unlockContainer = document.querySelector(".unlock");
 let addContainer = document.querySelector(".add");
 let crossContainer = document.querySelector(".cross");
+var modal = document.getElementById("myModal");
 
 let colors = ['pink','blue','green','black'];
 let defaultColor = 'black';
@@ -16,6 +17,11 @@ let deleteMode = false;
 
 input.addEventListener('keydown', function(e){
     if(e.code== 'Enter' && input.value){
+        // hit enter modal close
+        modal.style.display = "none";
+        // hit enter add icon background close
+        document.getElementById("openModal").style.background = '';
+
         console.log('task value', input.value);
         let id = uid();
         // createDiv(id, input.value);
@@ -97,8 +103,6 @@ colorContainer.addEventListener("click", function (e) {
 //     crossContainer.classList.add("delete");
 // })
 
-
-
 // lock unlock container content editable false true
 lockContainer.addEventListener("click", function(e){
     let numberOfElements = document.querySelectorAll(".task-main>div");
@@ -118,7 +122,7 @@ unlockContainer.addEventListener("click", function(e){
     lockContainer.classList.remove("active");
     unlockContainer.classList.add("active");
 })
-
+// cross container delete div of divs
 crossContainer.addEventListener("click", function (e) {
     deleteMode = !deleteMode;
     if (deleteMode) {
@@ -132,6 +136,7 @@ crossContainer.addEventListener("click", function (e) {
 // helpers
 function createTask(id, task, flag) {
     console.log("create task ran", id);
+
     // add to local storage
     let taskContainer = document.createElement("div");
     taskContainer.setAttribute('class', 'task-container');
@@ -143,6 +148,7 @@ function createTask(id, task, flag) {
             <div class = "text" contentEditable = "true">${task}</div>
         </div> 
     `;
+    
     // add evenListener for color changes 
     let taskHeader = taskContainer.querySelector(".task-header");
     // color
@@ -258,3 +264,29 @@ function filterCards(filterColor) {
 // localStorage.clear();
 // let item = localStorage.getItem("todo");
 // console.log("item", item);
+
+
+
+// ---------- Modal open ----------
+// Get the modal
+// var modal = document.getElementById("myModal");
+// Get the button that opens the modal
+var btn = document.getElementById("openModal");
+// When the user clicks the add icon, open the modal 
+btn.onclick = function() {
+    document.getElementById("openModal").style.background = '#ac2020';
+    modal.style.display = "block";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.getElementById("openModal").style.background = '';
+    }
+}
+
+
+//through modal color change
+function changeColor(color) {
+    document.querySelector(".color-modal ${color}").addClass('border-color');
+}
