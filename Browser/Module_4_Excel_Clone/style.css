@@ -69,8 +69,28 @@ body {
 }
 .grid{
     height:auto;
-    background-color:lightblue;
+    background-color:#ffffff;
     left: 2.1rem;
     top: 2.1rem;
     position: absolute;
+}
+
+/* formula bar */
+.formula_bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formula_bar>div{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.formula_bar>*{
+    height: 70%;
+}
+.address_input{
+    width: 15%;
+}
+.formula_input{
+    width: 80%;
 }
