@@ -1,8 +1,39 @@
-body{
+body {
     margin: 0px;
 }
-.fas{
+
+.fas {
     font-size: 2rem;
     margin-right: 30px;
     margin-left: 30px;
+}
+
+.icon-pallet {
+    height: 50px;
+    background-color: rgb(228, 227, 227);
+    width: 800px;
+    margin-left: 100px;
+    /* tools */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.red {
+    background-color: lightpink;
+    height: 35px;
+    width: 35px;
+    /* curve */
+    border-radius: 50%;
+}
+.green {
+    background-color: lightgreen;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%
+}
+.blue {
+    background-color: lightblue;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
 }
