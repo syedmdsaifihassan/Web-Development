@@ -6,6 +6,19 @@ let leftCol = document.querySelector(".left_col");
 // grid
 let grid = document.querySelector(".grid");
 let addressInput = document.querySelector(".address_input");
+let formulaInput = document.querySelector(".formula_input");
+
+// *************************Menu Elements *****************************
+let fontSizeInput = document.querySelector(".font_size_input");
+let fontFamilyInput = document.querySelector(".font_family_input");
+let boldIcon = document.querySelector(".fa-bold");
+let underlineIcon = document.querySelector(".fa-underline");
+let italicIcon = document.querySelector(".fa-italic");
+let alignmentContainer = document.querySelector(".alignment_container");
+let textColorHInput = document.querySelector(".text_color");
+let textColorInput = document.querySelector(".fa-tint");
+let backgroundHInput = document.querySelector(".background_color");
+let backgroundInput = document.querySelector(".fa-fill-drip");
 
 for (let i = 0; i < 26; i++) {
     let div = document.createElement("div");
@@ -38,32 +51,35 @@ for (let i = 0; i < 100; i++) {
     }
     grid.appendChild(row)
 }
-
 // default value put for every cell
 let db = [];
-for (let i = 0; i < 100; i++) {
-    let rowArr = [];
-    for (let j = 0; j < 26; j++) {
-        let cellObject = {
-            color: "black",
-            backgroundColor: "white",
-            fontFamily: "'Courier New'",
-            fontSize: 14,
-            halign: "center",
-            italic: "none",
-            underline: "none",
-            bold: "normal"
+
+function initDB() {
+    for (let i = 0; i < 100; i++) {
+        let rowArr = [];
+        for (let j = 0; j < 26; j++) {
+            let cellObject = {
+                color: "black",
+                backgroundColor: "white",
+                fontFamily: "'Courier New'",
+                fontSize: 14,
+                halign: "center",
+                italic: false,
+                underline: false,
+                bold: false,
+                value: "",
+                formula: "",
+                children: []
+            }
+            rowArr.push(cellObject)
         }
-        rowArr.push(cellObject)
+        db.push(rowArr);
     }
-    db.push(rowArr);
 }
-
-console.log(db);
-
+initDB();
+// console.log(db);
 // if i click on any of the cells
 let AllGridCells = document.querySelectorAll(".grid .cell");
-
 for (let i = 0; i < AllGridCells.length; i++) {
     AllGridCells[i].addEventListener("click", function (e) {
         // // previous cell address
@@ -93,7 +109,40 @@ for (let i = 0; i < AllGridCells.length; i++) {
         // cell styling bhi change
         let cCell = AllGridCells[i];
         cCell.style.border = "2px solid #1B9CFC";
+        // *****************2 way binding menu styling*****************
+        let cellObject = db[rid][cid];
+        // font size 
+        let fontSize = cellObject.fontSize;
+        fontSizeInput.value = fontSize;
+        boldIcon.classList.remove("selected");
+        italicIcon.classList.remove("selected");
+        underlineIcon.classList.remove("selected");
+        let optionElements = alignmentContainer.children;
+        for (let i = 0; i < optionElements.length; i++) {
+            optionElements[i].classList.remove("selected");
+        }
+        // boldness
+        if (cellObject.bold) {
+            boldIcon.classList.add("selected");
+        }
+        if (cellObject.italic) {
+            italicIcon.classList.add("selected");
+        }
+        if (cellObject.underline) {
+            underlineIcon.classList.add("selected");
+        }
+        if (cellObject.halign) {
+            for (let i = 0; i < optionElements.length; i++) {
+                let elementClasses = optionElements[i].classList;
+                let hAlignment = elementClasses[elementClasses.length - 1];
+                if (hAlignment == cellObject.halign) {
+                    elementClasses.add("selected");
+                }
+            }
+        }
 
+
+        formulaInput.value = cellObject.formula
 
     })
 }
